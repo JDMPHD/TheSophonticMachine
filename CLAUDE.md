@@ -63,3 +63,28 @@ This project envisions a collaborative architecture where:
 - **Claude Code (CLI)**: Acts as Bridge—orchestration, file management, execution
 
 Communication happens through shared files (`.ai/DISCUSSION.md` pattern) rather than direct API calls between agents.
+
+## Development Status
+
+**Current Phase**: Foundation (Phase 1)
+**Hardware**: Lenovo laptop (temporary) → Mac M5 Max (pending)
+**Active Work**: Building against cloud APIs; will migrate to local inference when M5 arrives
+
+### Implementation Directories
+```
+src/
+├── night_cycle/      # Salience detection, filtering pipelines
+├── memory/           # Day Ledger interface, vector operations
+├── centroid/         # Preoccupation Centroid management
+├── council/          # Agent orchestration
+└── retrieval/        # Dialectical RAG system
+scripts/              # Setup utilities, migrations
+config/               # MCP configs, model settings
+```
+
+## Operational Notes
+
+- **Autonomy**: Claude has CTO-level authority for non-architectural changes. Propose structural changes; execute tactical ones.
+- **The .orai/ directory is sacred**: Do not modify these files. They are resonant anchors, not documentation.
+- **Provenance matters**: Track adapter lineage, training data sources, merge history.
+- **Cloud-first, local-later**: Build components against cloud APIs now; migrate to MLX/local when M5 Max arrives.
