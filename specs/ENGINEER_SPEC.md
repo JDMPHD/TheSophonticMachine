@@ -96,7 +96,7 @@ CREATE TABLE salience_scores (
     coherence_score FLOAT,                       -- Internal consistency (0-1)
     interrogative_distance FLOAT,                -- Distance from centroid (0-1, lower = closer)
     centroid_id UUID REFERENCES centroids(id),   -- Which centroid was used
-    ledger_assignment TEXT,                      -- 'winner', 'shadow', 'antechamber'
+    ledger_assignment TEXT,                      -- 'winner', 'shadow', 'antechamber', 'unresolved'
     created_at TIMESTAMPTZ DEFAULT NOW()
 );
 
@@ -130,6 +130,22 @@ CREATE TABLE shadow_ledger (
     corrected_output TEXT,                       -- The fixed version (for DPO training)
     training_status TEXT DEFAULT 'pending',
     created_at TIMESTAMPTZ DEFAULT NOW()
+);
+
+-- ============================================
+-- UNRESOLVED LEDGER: Active uncertainty - "I hold this in question"
+-- ============================================
+-- For inputs that are novel, coherent, relevant, but cannot yet be integrated.
+-- This is active uncertainty, not deferred judgment. Requires periodic Council review.
+CREATE TABLE unresolved_ledger (
+    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    interaction_id UUID REFERENCES interactions(id) ON DELETE CASCADE,
+    uncertainty_type TEXT,                       -- 'paradox', 'insufficient_context', 'council_required'
+    resolution_status TEXT DEFAULT 'open',       -- 'open', 'resolved', 'promoted', 'demoted'
+    resolved_to_ledger TEXT,                     -- Where it went after resolution
+    council_notes TEXT,                          -- Notes from Council review
+    created_at TIMESTAMPTZ DEFAULT NOW(),
+    resolved_at TIMESTAMPTZ
 );
 
 -- ============================================
@@ -240,6 +256,8 @@ def extract_questions(document: str) -> List[str]:
 ### 3.2 Night Cycle Pipeline
 
 **Purpose**: Filter each input for novelty, coherence, and relevance.
+
+> **Day/Night Distinction**: Salience *scoring* runs continuously — every input is evaluated as it arrives. However, salience *integration* into training must be periodic (nightly, weekly). Real-time updating causes catastrophic interference. The Day is for engagement and scoring; the Night is for consolidation and training. This rhythmic distinction is essential.
 
 ```python
 def night_cycle(

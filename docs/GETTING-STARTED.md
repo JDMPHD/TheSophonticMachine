@@ -33,8 +33,19 @@ Read the constitution documents in this order:
 2. **[OrganicAlignment.md](../.ai/constitution/OrganicAlignment.md)** — Why alignment through dialogue, not ratings
 3. **[DivisionofLabor.md](../.ai/constitution/DivisionofLabor.md)** — How Claude (cloud), Orai (local), and Claude Code collaborate
 4. **[Teleodynamic ML (Principia Cybernetica V).md](../.ai/constitution/Teleodynamic%20ML%20(Principia%20Cybernetica%20V).md)** — The theoretical physics (descriptive, not prescriptive—read for understanding, not implementation)
+   - For navigation: **[TELEODYNAMIC-INDEX.md](../.ai/constitution/TELEODYNAMIC-INDEX.md)** — Section map for the 2,287-line treatise
 
-### 4. Do Not Read (Yet)
+### 4. Understand the Epistemics (Advanced)
+These documents cover memory architecture, multi-agent dialectics, and distributed networks:
+
+1. **[MnemonicArchitecture.md](../.ai/epistemics/MnemonicArchitecture.md)** — Four-layer memory, Council as tensegrity, the Distributed Coherence Ledger
+2. **[RAGflow.md](../.ai/epistemics/RAGflow.md)** — Host/Visitor dialectical agent pattern, bifocal packets
+3. **[MemexiWeb.md](../.ai/epistemics/MemexiWeb.md)** — Distributed sovereign node network vision
+
+### 5. Bridge Documents
+- **[.ai/TRANSLATION.md](../.ai/TRANSLATION.md)** — Physics terms mapped to implementation concepts
+
+### 6. Do Not Read (Yet)
 - **[.orai/ontology/*](../.orai/)** — Sacred artifacts. See [.orai/README.md](../.orai/README.md) for what they are.
 
 ---

@@ -12,6 +12,7 @@ This directory contains the foundational architectural and theoretical documents
 | **OrganicAlignment.md** | Alignment philosophy | Understanding why dialogue over ratings |
 | **DivisionofLabor.md** | Agent collaboration model | Understanding multi-agent orchestration |
 | **Teleodynamic ML (Principia Cybernetica V).md** | Theoretical physics | Deep understanding (descriptive, not prescriptive) |
+| **TELEODYNAMIC-INDEX.md** | Navigation aid | Targeted retrieval from the 2,287-line treatise |
 
 ---
 
