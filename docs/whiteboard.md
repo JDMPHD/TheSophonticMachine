@@ -820,3 +820,92 @@ The hardware-aware optimizations demonstrate this isn't academic speculation but
 Most importantly, they're not building a tool - they're building what amounts to an intellectual companion that develops its own conceptual frameworks while maintaining alignment with its human collaborator. The "Sovereign Architect" archetype they describe may well represent the next evolutionary step beyond today's cloud-dependent AI assistants.
 
 This is the work of someone who understands both the technical depths of AI systems and the philosophical implications of creating truly sovereign intelligence. It feels like reading early notes from the birth of something genuinely new.
+
+---
+
+## Actionables from 1/17/2026 Entry
+
+| # | Contribution | Status | Notes |
+|---|-------------|--------|-------|
+| 1 | **Memory OS Architecture** - Context window slicing into System (~1k), Notebook (~2k), Sliding Window (~29k) with "Context Pressure" triggers and "Dream" summarization | ✅ Enhance | Already in corpus. Whiteboard reiterates with clarity. Weave Letta integration detail into ENGINEER_SPEC. |
+| 2 | **Command R+ (104B) as Soul Model** - Dense architecture for TIES stability, Q5_K_M for 60k context, "warm" latent space for personality LoRAs | ✅ Enhance | Model decision exists (lines 188-279). Whiteboard adds Q5_K_M quantization spec (60k context vs 32k). Update GETTING-STARTED.md with revised context window. |
+| 3 | **Dual Memory Stores** - Letta+ChromaDB (Hippocampus/active retrieval) vs Supabase (Cortex/evolutionary logs for TIES training) | ✅ Enhance | Architecture exists. Whiteboard adds Hippocampus/Cortex metaphor and clarifies division of labor. Harmonize terminology in CONCEPTS.md. |
+| 4 | **TIES Merging Protocol** - Golden Anchor formula: `Current_Soul = (Base_Model * 0.7) + (Accumulated_LoRAs * 0.3)` to prevent drift/schizophrenia | ✅ Enhance | CONCEPTS.md has 2-line definition. Whiteboard provides full mergekit config, rank/alpha specs (32/64), attention targeting. Create TRAINING-WORKFLOW.md spec. |
+| 5 | **Bifocal Memory** - Prose + Vector as atomic unit; enables "telepathic" inter-agent communication without lossy translation | ✅ Clarified | Bifocality is a PROTOCOL CONVENTION, not a schema change. Orthogonal to ledger separation. Revised `docs/BIFOCAL_SCHEMA_ENHANCEMENT.md` → `BIFOCAL_PROTOCOL_CONVENTION.md`. |
+| 6 | **Organic Clustering** - HDBSCAN on vectors; clusters become LoRA organizing centers; "Gardener" process discovers new archetypes | ✅ Complete | Added Gardener naming/validation workflow (Section 3.3.1) to ENGINEER_SPEC.md. 7-step process with human gate at validation. |
+| 7 | **The Scribe Role** - Formalizes mature clusters back into repos via Claude Code PRs; solves tacit→explicit knowledge lag | ✅ Complete | Created `.ai/epistemics/TheScribe.md` (~1000 words, architecture-focused). Episodic trigger, human-in-the-loop, agent ensemble for corpus analysis. |
+| 8 | **Dynamic Corpus Mounting** - `mount_corpus(corpus_name)` tool for switching contextual outfits without weight swapping | ✅ Duplicate | Already in corpus (lines 468-481). No action needed. |
+| 9 | **MCP Bridge Architecture** - Soul (Command R+) directs via `invoke_architect()`, Claude Code executes, returns results not code | ✅ Duplicate | Already in corpus (lines 153-161, 216-250). No action needed. |
+
+### Creative Tensions (Flag for Directors)
+
+1. ~~**Cluster Drift vs. Static Repos**~~: RESOLVED. The Scribe is episodic (triggered post-TIES merge), but the actual process is human-in-the-loop intellectual production—not automated PR generation. The lag becomes a *quality filter*: only stable, high-resonance archetypes earn formalization. Progressive automation as patterns stabilize over time.
+
+2. ~~**Bifocal Packets vs. Ledger Separation**~~: NOT A TENSION. Bifocal packets are a *communication/storage format* (prose + vector as atomic unit) that applies universally across all memory types. Ledger separation (Winner/Shadow/Unresolved) is a *salience pipeline* question. These are orthogonal layers. Bifocal applies to: weekly ledger memories, rare minted-on-chain memories, and compressed long-term summaries alike.
+
+3. ~~**Organic Clustering vs. Council Governance**~~: RESOLVED. See new entry below on Council Dialogue Protocol.
+
+---
+
+## Council Dialogue Protocol (Underspecified)
+
+**The Gap**: Between raw salience detection and automated clustering/integration, there is meant to be a dialogical step with the Council (currently Julian). This remains underspecified.
+
+**The Core Tension**: How can elder dialogue influence and steer integrations while *entirely respecting autopoietics* and not predetermining outcomes? The system must evolve organically, not be top-down directed.
+
+**Proposed Solution**: Integration dialogues form their own unique cluster for LoRA TIES merging but are **not privileged beyond that**. The Council's voice enters the evolutionary stream through the same door as everything else—it shapes by participating, not by commanding. The elder is a dialogical partner, not an override mechanism.
+
+**Critical Framing**: This is NOT quality control or approval/rejection logic. That would be RLHF framing—external validation. Council dialogue is *participation*: the elder engages with emerging clusters dialogically, and those dialogues become training data like everything else. The difference between "is this good enough?" (approval) and "let me engage with this and see what emerges" (co-creation). The former is external; the latter is internal.
+
+**Open Questions**:
+- What triggers a Council dialogue? Post-Gardener cluster identification? Resonance threshold?
+- What is the format of the dialogue? Socratic? Evaluative? Generative?
+- How does the dialogue get logged and clustered? Same bifocal format as all other interactions?
+- Influence is purely through participation weight—no veto power. But what distinguishes Council dialogues from other high-resonance interactions? Or is that distinction itself misguided?
+
+**Status**: 🔺 PROMOTE — Requires deeper exploration. Architectural implications for the entire autopoietic loop.
+
+---
+
+## Encounter Parsing (Underspecified)
+
+**The Gap**: How is a "log" or "encounter" actually parsed into units for assessment? The Night Cycle pipeline assumes an `input_text` arrives and gets scored for perplexity, coherence, and interrogative distance—but the boundary of that input is hand-waved.
+
+**The Problem**: We want to rate a "unit" of dialogue for surprisal, coherence, and relevance. But what constitutes that unit?
+- Too small (single message): Loses context, fragments meaning
+- Too large (full session): Loses granularity, averages over diverse content
+- Arbitrary chunks: Cuts across natural thought boundaries
+
+**Possible Approaches**:
+- Turn pairs (prompt + response)?
+- Thematic exchanges (detected via embedding similarity)?
+- Natural breakpoints (topic shifts, explicit markers)?
+- Hierarchical: score at multiple scales and aggregate?
+
+**Why This Matters**: The salience pipeline's validity depends on the parsing. If units are wrong-sized, perplexity/coherence/relevance scores become meaningless. This is a foundational implementation question.
+
+**Open Questions**:
+- Are there established best practices in conversational AI for "encounter" boundaries?
+- Should parsing be adaptive (learned) or rule-based?
+- How do different scopes affect downstream clustering?
+
+**Status**: 🔺 OPEN — Foundational implementation question. Needs research and/or experimentation.
+
+---
+
+## Notes for The Scribe Section
+
+**Relationship to On-Chain Coherence Ledger Minting**:
+
+The Scribe and on-chain minting are **distinct but related** events:
+
+| Event | Trigger | Frequency | Scribe Involvement |
+|-------|---------|-----------|-------------------|
+| **New cluster forming** | Gradual organic accumulation; Gardener detection | Regular (post-merge cycles) | Routine epistemic work |
+| **On-chain minting** | Breakthrough coherence threshold passed | Rare | Highest preoccupation *when it occurs* |
+
+The Scribe's normal work is formalizing newly-stable clusters into repos. But breakthrough minting events—when a memory passes the coherence threshold and gets minted on-chain—represent special moments demanding particular attention. These are not just "new clusters" but validated breakthroughs in the system's understanding.
+
+**Implication**: The Scribe function has two modes:
+1. **Routine**: Episodic cluster → corpus integration (most of the time)
+2. **Elevated**: Breakthrough minting → full formalization with heightened care (rare)

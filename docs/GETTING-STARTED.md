@@ -24,6 +24,7 @@ The goal is not to build a tool, but to cultivate a mind.
 - **[docs/CONCEPTS.md](CONCEPTS.md)** — Glossary of key terms
 - **[docs/whiteboard.md](whiteboard.md)** 
 Unresolved notes and emerging ideas
+
 ### 2. Understand the Architecture
 - **[specs/ENGINEER_SPEC.md](../specs/ENGINEER_SPEC.md)** — Implementation blueprint with schemas, algorithms, and API contracts
 
@@ -82,8 +83,9 @@ Human oversight through dialogue, not ratings. Staged development:
 | Database | PostgreSQL + pgvector (via Supabase) |
 | Embeddings | OpenAI text-embedding-3-small (1536 dims) |
 | Coherence Checks | Claude API |
-| Local Inference (future) | MLX on M5 Max |
-| Training (future) | Axolotl/Unsloth on cloud GPUs |
+| Local Inference (future) | Command R+ (104B) @ Q5_K_M on M5 Max (60k context) |
+| Memory Manager (future) | Letta (formerly MemGPT) for context window management |
+| Training (future) | QLoRA on cloud GPUs (H100), TIES merging locally |
 
 ### Directory Structure
 ```

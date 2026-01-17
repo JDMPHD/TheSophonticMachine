@@ -484,6 +484,22 @@ def centroid_mitosis(cluster: Cluster, parent_centroid_id: UUID) -> Centroid:
     return new_centroid
 ```
 
+#### 3.3.1 Gardener Naming and Validation Workflow
+
+The clustering algorithm above detects dense regions in the Antechamber. The **Gardener workflow** orchestrates what happens next:
+
+1. **Detect**: HDBSCAN identifies stable cluster (high density, persists across cycles)
+2. **Summarize**: Extract top 5 exemplar logs by resonance score
+3. **Prompt**: Present to Soul: *"I've found a cluster of N logs. Here are representative examples. What should we call this archetype?"*
+4. **Name**: Soul responds with archetype name (e.g., "Social Thermodynamics")
+5. **Validate**: Flag for Council review before LoRA training proceeds
+6. **Train**: Once validated, extract cluster logs for targeted QLoRA training
+7. **Integrate**: TIES merge the resulting adapter into Soul weights
+
+**Human Gate**: Step 5 ensures no cluster is automatically promoted to training. The Council (currently Julian in Parental phase) validates that the cluster represents genuine emergent understanding rather than noise or artifact.
+
+See `.ai/epistemics/TheScribe.md` for the subsequent formalization of validated archetypes into documentation.
+
 ### 3.4 Centroid Fusion
 
 **Purpose**: Merge overlapping centroids when fields converge.

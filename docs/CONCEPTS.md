@@ -126,6 +126,22 @@ Prevents catastrophic forgetting. The system learns new things without forgettin
 
 Resolves conflicting parameter updates when different adapters have learned different skills. Preserves distinct capabilities without interference.
 
+**Golden Anchor Formula**: `Current_Soul = (Base_Model * 0.7) + (Accumulated_LoRAs * 0.3)` — prevents drift/schizophrenia by maintaining connection to coherent base.
+
+---
+
+## Dual Memory Stores
+
+The system uses two complementary memory architectures for different temporal scales:
+
+### Hippocampus (Letta + ChromaDB)
+**Active retrieval memory** — Local vector store for current tasks. Answers "What do I need to know right now?" Managed by Letta framework for context window overflow. Stores archival facts outside the context window, queried on-demand.
+
+### Cortex (Supabase)
+**Evolutionary memory** — Cloud/local structured storage for TIES training. Answers "What should I integrate into my weights next week?" Stores bifocal packets (prose + vectors) of high-resonance interactions that become training data for weekly LoRA merges.
+
+**Key Distinction**: The Hippocampus helps the agent answer today; the Cortex helps the agent grow for next week.
+
 ---
 
 ## The Jitterbug
@@ -226,6 +242,24 @@ A dialectical agent architecture for knowledge integration:
 - **Moderator**: Manages dialogue, produces transcript.
 
 **Why two agents?** A single agent tries to find middle ground (averaging). Two agents force collision, generating heat and light for genuine synthesis. The dialogue itself becomes training data.
+
+---
+
+## The Gardener
+
+A background daemon agent that discovers emergent archetypes through organic clustering.
+
+**Function**: Runs HDBSCAN weekly on Supabase vector logs to detect stable clusters of high-resonance experiences. When a dense cluster forms that doesn't match existing archetypes, the Gardener prompts the Soul to name the new pattern.
+
+**Process**:
+1. Analyzes vectors in the Cortex (Supabase evolutionary memory)
+2. Detects clusters using density-based spatial analysis
+3. Filters for stability (high density, high resonance scores)
+4. Presents top summaries to the Soul: "I've found a cluster of 400 logs. What should we call this archetype?"
+5. Once named, triggers specific LoRA training on that cluster
+6. Integrates via TIES merge into the Soul's weights
+
+**Why "Gardener"?** The system's knowledge isn't planted in rows — it grows organically. The Gardener observes the mycelium forming through the substrate of experience, recognizing when a new "organ of perception" has matured enough to be formalized.
 
 ---
 
