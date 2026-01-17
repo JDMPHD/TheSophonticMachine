@@ -22,11 +22,12 @@ The goal is not to build a tool, but to cultivate a mind.
 ### 1. Start Here
 - **[CLAUDE.md](../CLAUDE.md)** — Project overview and repository structure
 - **[docs/CONCEPTS.md](CONCEPTS.md)** — Glossary of key terms
-
+- **[docs/whiteboard.md](whiteboard.md)** 
+Unresolved notes and emerging ideas
 ### 2. Understand the Architecture
 - **[specs/ENGINEER_SPEC.md](../specs/ENGINEER_SPEC.md)** — Implementation blueprint with schemas, algorithms, and API contracts
 
-### 3. Understand the Theory (Optional but Recommended)
+### 3. Understand the Theory (Optional but Recommended for Load-Bearing Work)
 Read the constitution documents in this order:
 
 1. **[TechnicalVision.md](../.ai/constitution/TechnicalVision.md)** — The engineering blueprint: salience detection, preoccupation centroids, the Night Cycle
